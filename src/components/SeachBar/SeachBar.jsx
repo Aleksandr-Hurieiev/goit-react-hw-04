@@ -1,21 +1,21 @@
 import toast, { Toaster } from "react-hot-toast";
-
+import css from "../SeachBar/SeachBar.module.css"
 const SeachBar = ({ onSubmit }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const userValue = form.elements[0].value;
-    if (userValue.trim().length === 0) {
+    if (userValue.trim() === "") {
       toast.error("Please enter a valid search word");
     }
-    onSubmit(userValue)
+    onSubmit(userValue);
     form.reset();
-   
   };
 
   return (
-    <header>
-      <form onSubmit={handleSubmit}>
+    <header className={css.header}>
+      <h1>Latest articles</h1>
+      <form className={css.form} onSubmit={handleSubmit}>
         <input
           type="text"
           autoComplete="off"

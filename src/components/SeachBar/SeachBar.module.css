@@ -1,0 +1,30 @@
+.header{
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    background-color: rgb(61, 124, 124);
+    padding: 20px 0;
+
+}
+.header h1{
+    color: bisque;
+}
+.form{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.form input{
+    width: 200px;
+    padding: 12px 15px;
+    border: 2px solid bisque;
+    border-radius: 15px;
+    color: rgb(61, 124, 124);
+}
+.form button{
+    border: 2px solid bisque;
+    border-radius: 15px;
+    color: rgb(61, 124, 124);
+}
