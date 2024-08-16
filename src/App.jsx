@@ -41,6 +41,7 @@ function App() {
           }
           return data.results;
         });
+        setError(false);
         setTotalPage(data.total_pages);
         if (data.total_pages === 0) {
           toast.error("Nothing was found for your request", {
