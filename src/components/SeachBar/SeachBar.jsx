@@ -14,7 +14,6 @@ const SeachBar = ({ onSubmit }) => {
 
   return (
     <header className={css.header}>
-      <h1>Latest articles</h1>
       <form className={css.form} onSubmit={handleSubmit}>
         <input
           type="text"

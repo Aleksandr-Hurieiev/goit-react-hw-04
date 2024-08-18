@@ -12,7 +12,7 @@ import "./App.css";
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   // Масив HTTPS запроса
-  const [articles, setArticles] = useState(null);
+  const [images, setImages] = useState(null);
   // номер страницы
   const [numberPage, setNumberPage] = useState(1);
   const [totalPage, setTotalPage] = useState(0);
@@ -30,18 +30,18 @@ function App() {
   useEffect(() => {
     if (userSeach === null) return;
     const getPhotos = async (userSeach) => {
-      setLoading(false);
+      setLoading(true);
       try {
         const data = await fetchArticlesWithSeach(userSeach, numberPage);
         setError(false);
-        setArticles((prevImages) => {
+        setImages((prevImages) => {
           if (prevImages !== null) {
             setError(false);
             return [...prevImages, ...data.results];
           }
           return data.results;
         });
-        setError(false);
+
         setTotalPage(data.total_pages);
         if (data.total_pages === 0) {
           toast.error("Nothing was found for your request", {
@@ -52,10 +52,7 @@ function App() {
         return;
       } catch (error) {
         setError(true);
-        setLoading(false);
-        console.log(error);
       } finally {
-        setError(false);
         setLoading(false);
       }
     };
@@ -63,7 +60,7 @@ function App() {
   }, [userSeach, numberPage]);
 
   const onSubmit = (userDate) => {
-    setArticles(null);
+    setImages(null);
     setUserSeach(userDate);
     setNumberPage(1);
   };
@@ -81,9 +78,9 @@ function App() {
       <Toaster />
       <SeachBar onSubmit={onSubmit} />
       {loading && <Loader />}
-      {articles !== null && (
+      {images !== null && (
         <ImageGallery
-          articles={articles}
+        images={images}
           openModal={openModal}
           setCurrentImage={setCurrentImage}
         />
