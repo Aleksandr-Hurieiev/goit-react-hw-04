@@ -1,9 +1,9 @@
-/* .block {
+.block {
   display: block;
   flex-direction: column;
   width: 300px;
   border-bottom: 2px solid rgb(204, 203, 203);
-} */
+}
 
 .block__img {
     width: 100%;
